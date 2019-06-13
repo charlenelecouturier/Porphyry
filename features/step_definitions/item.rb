@@ -19,6 +19,11 @@ Quand("on choisit la rubrique {string}") do |topic|
   click_on topic
 end
 
+Quand("on ajoute une ressource {string} à un item") do |string|
+  # TODO: Implement test
+  attach_file('Fichier', 'samples/' + string)
+end
+
 # Outcomes
 
 Alors("le titre de l'item affiché est {string}") do |item|
@@ -34,3 +39,6 @@ Alors("une des rubriques de l'item est {string}") do |topic|
   expect(page).to have_content(topic)
 end
 
+Alors("la ressource {ressource} est ajoutée à la liste des ressources associées à l'item {item}") do |ressource, item|
+  expect(item).to have_content(ressource)
+end
